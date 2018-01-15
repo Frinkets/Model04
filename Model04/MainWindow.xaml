@@ -1,0 +1,53 @@
+﻿<Window x:Class="Model04.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Model04"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="ConnectBtn" Click="ConnectBtn_Click" Content="Connect"></Button>
+            <Button x:Name="CreateTableBtn" Click="CreateTableBtn_Click" Content="Create Table" ></Button>
+            </StackPanel>
+      
+        <TabControl Grid.Row="1">
+            <TabItem Header="Columns">
+                <ListView x:Name="dtColumns">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="ColumnName" 
+                                                DisplayMemberBinding="{Binding Path= ColumnName}"></GridViewColumn>
+                                <GridViewColumn Header="DataType" 
+                                                DisplayMemberBinding="{Binding Path= DataType}"></GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Header="Rows">
+                <ListView x:Name="dtRows">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Cell" 
+                                                DisplayMemberBinding="{Binding Path= cell}"></GridViewColumn>
+                             
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</Window>
